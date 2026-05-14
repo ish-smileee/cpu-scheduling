@@ -693,6 +693,12 @@ class CPUSchedulerApp(tk.Tk):
                   background=[("selected", ACCENT2)],
                   foreground=[("selected", "white")])
 
+        # Averages row
+        self.avg_label = tk.Label(parent, text="",
+                                   font=FONT_LABEL, bg=BG_PANEL, fg=TEXT_MID,
+                                   pady=6)
+        self.avg_label.pack()
+
         tree_frame = tk.Frame(parent, bg=BG_PANEL, padx=16, pady=8)
         tree_frame.pack(fill="both", expand=True)
 
@@ -707,13 +713,7 @@ class CPUSchedulerApp(tk.Tk):
                              command=self.results_tree.yview)
         self.results_tree.configure(yscrollcommand=vsb.set)
         vsb.pack(side="right", fill="y")
-        self.results_tree.pack(fill="both", expand=True)
-
-        # Averages row
-        self.avg_label = tk.Label(parent, text="",
-                                   font=FONT_LABEL, bg=BG_PANEL, fg=TEXT_MID,
-                                   pady=6)
-        self.avg_label.pack()
+        self.results_tree.pack(side="bottom", fill="x", expand=True)
 
     # ────────────────────────────────────────────
     #  SIMULATION AND DISPATCH
